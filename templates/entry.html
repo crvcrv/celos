@@ -1,0 +1,7 @@
+<div class="entry" id="{{ entry["id"] }}">
+	<img src="{{entry['host'].gravatar()}}" alt="{{entry['host']['user_agent']}}"/>
+	<span>{{entry['host']['ip']}}</span>
+	<div>{{entry['lvl']}}: {{entry['msg']}}</div>
+	<div>{{entry['stack_trace']}}</div>
+	<br />
+</div>
