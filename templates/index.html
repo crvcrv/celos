@@ -3,9 +3,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <title>Tornado Chat Demo</title>
-    <link rel="stylesheet" href="{{ static_url('base.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ static_url('css/base.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ static_url('css/fontello.css') }}">
+    <link rel="stylesheet" href="{{ static_url('css/animation.css') }}"><!--[if IE 7]><link rel="stylesheet" href="{{ static_url('css/fontello-ie7.css') }}"><![endif]-->
   </head>
   <body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ static_url('js/ua-parser.js') }}" type="text/javascript"></script>
     <div id="nav">
       <b>-</b> -
       <a href="/auth/logout">{{ _("Sign out") }}</a>
@@ -16,8 +20,7 @@
           {% module Template("entry.html", entry=entry) %}
         {% end %}
       </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="{{ static_url('celos.js') }}" type="text/javascript"></script>
+    <script src="{{ static_url('js/celos.js') }}" type="text/javascript"></script>
     <script>
 
     $(document).ready(function(){

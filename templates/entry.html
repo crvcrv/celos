@@ -1,7 +1,28 @@
-<div class="entry" id="{{ entry["id"] }}">
-	<img src="{{entry['host'].gravatar()}}" alt="{{entry['host']['user_agent']}}"/>
-	<span>{{entry['host']['ip']}}</span>
-	<div>{{entry['lvl']}}: {{entry['msg']}}</div>
-	<div>{{entry['stack_trace']}}</div>
-	<br />
+<div class="entry" id="{{ entry['id'] }}">
+    <img src="{{entry['host'].gravatar()}}" alt="{{entry['host']['user_agent']}}"/>
+    <span>{{entry['host']['ip']}}</span>
+    <div>{{entry['lvl']}}: {{entry['msg']}}</div>
+    <div>{{entry['stack_trace']}}</div>
+    <br />
 </div>
+
+<script>
+$(document).ready(function(){
+    var parser = new UAParser();
+    var entry_id = "#{{entry['id']}}";
+    var user_agent = "{{entry['host']['user_agent']}}";
+    parser.setUA(user_agent);
+
+    var result = parser.getResult();
+
+    icon_map = {
+        'Chromium': 'icon-chrome',
+        'Chrome': 'icon-chrome',
+        'Firefox': 'icon-firefox',
+        'IE': 'icon-ie',
+    }
+
+    $(entry_id).prepend('<i class="'+icon_map[result.browser.name]+'"></i>')
+});
+
+</script>
